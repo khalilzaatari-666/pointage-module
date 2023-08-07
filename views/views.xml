@@ -1,0 +1,37 @@
+<odoo>
+    <!-- Define the top-level menu for your module -->
+    <data>
+        <menuitem name="Pointage App" id="menu_module_root" sequence="10"/>
+    </data>
+
+    <!-- Define submenus under the top-level menu -->
+    <data>
+        <menuitem name="Users" id="menu_module_users" parent="menu_module_root" action="action_users"/>
+        <menuitem name="Punch In/Out" id="menu_module_punch" parent="menu_module_root" action="action_punch"/>
+        <menuitem name="History" id="menu_module_history" parent="menu_module_root" action="action_history"/>
+    </data>
+
+    <!-- Define actions that will be triggered when clicking on the submenus -->
+    <data>
+        <record id="action_users" model="ir.actions.act_window">
+            <field name="name">Users</field>
+            <field name="res_model">your_module.users</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="your_module.view_users_tree"/>
+        </record>
+
+        <record id="action_punch" model="ir.actions.act_window">
+            <field name="name">Punch In/Out</field>
+            <field name="res_model">your_module.punch</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="your_module.view_punch_tree"/>
+        </record>
+
+        <record id="action_history" model="ir.actions.act_window">
+            <field name="name">History</field>
+            <field name="res_model">your_module.history</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="your_module.view_history_tree"/>
+        </record>
+    </data>
+</odoo>
